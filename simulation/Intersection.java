@@ -49,7 +49,7 @@ public class Intersection {
             		+ 		"Total Emission generated: " + totalEmission + "\n"
             		+		"Vehicle By Phase: \n");
             for (int i = 0; i < this.phaseVehicles.size(); i++)
-            	writer.write("P" + i + ": " + this.phaseVehicles.get(i) + "\n");
+            	writer.write("P" + (i + 1) + ": " + this.phaseVehicles.get(i) + "\n");
             writer.close();
         } catch (IOException e) {
             e.printStackTrace();
@@ -58,5 +58,9 @@ public class Intersection {
 	
 	public void addVehicle(Vehicle vehicle) {
 		phaseManager.addVehicle(vehicle);
+	}
+	
+	public void setPhaseCrossTime(int phase, int duration) {
+		this.phaseManager.getPhases().get(phase).setCrossTime(duration);
 	}
 }
