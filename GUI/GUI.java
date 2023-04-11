@@ -51,6 +51,9 @@ public class GUI extends JFrame implements ActionListener{
 		String[][] phaseListRowData = (String[][]) phaseList.get(0);
 		String[] phaseListColumnData = (String[]) phaseList.get(1);
 
+		for (String[] str : phaseListRowData) {
+			intersection.setPhaseCrossTime(Integer.valueOf(str[0].substring(1)) - 1, Integer.valueOf(str[1].substring(0, str[1].length()-1)));
+		}
 		//Fetching vehicles Data
 		ArrayList<Object> vehiclesList = VehicleListPanel.vehiclesListPanelData();
 		vehiclesListRowData = mergeVehicleData(rowData);
